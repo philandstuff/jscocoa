@@ -1317,6 +1317,15 @@ static id JSCocoaSingleton = NULL;
 	return	argumentEncodings;
 }
 
+char firstTypeEncodingChar(id typeEncoding) {
+	int i;
+	for (i=0; ;++i) {
+		char typeEncodingChar = [typeEncoding UTF8String][i];
+		if (typeEncodingChar != 'r')
+			return typeEncodingChar;
+	}
+}
+
 //
 // This is parsed from BridgeSupport's xml
 //
@@ -1346,7 +1355,7 @@ static id JSCocoaSingleton = NULL;
 #else
 			id typeEncoding = [[child attributeForName:@"type"] stringValue];
 #endif			
-			char typeEncodingChar = [typeEncoding UTF8String][0];
+			char typeEncodingChar = firstTypeEncodingChar(typeEncoding);
 		
 			id argumentEncoding = [[JSCocoaFFIArgument alloc] init];
 			// Set return value — NO, as return value might not be the first element. Use retval to decide.

@@ -334,7 +334,7 @@
 				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH_64)";
 				OTHER_LDFLAGS = "-lffi";
 				PREBINDING = NO;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.7.sdk";
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -350,7 +350,7 @@
 				INSTALL_PATH = "@loader_path/../Frameworks";
 				OTHER_LDFLAGS = "-lffi";
 				PREBINDING = NO;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.7.sdk";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
